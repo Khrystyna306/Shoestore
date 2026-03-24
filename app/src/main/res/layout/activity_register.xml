@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:hint="@string/first_name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPersonName"
+            android:autofillHints="name"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:hint="@string/last_name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPersonName"
+            android:autofillHints="name"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etBirthDate"
+            android:hint="@string/birth_date_hint"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="date"
+            android:autofillHints="birthDate"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:hint="@string/email_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etLogin"
+            android:hint="@string/login_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="text"
+            android:autofillHints="username"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:hint="@string/password_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:autofillHints="password"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:hint="@string/confirm_password_hint"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:autofillHints="password"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:text="@string/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingHorizontal="12dp"
+            android:maxWidth="400dp"/>
+    </LinearLayout>
+</ScrollView>

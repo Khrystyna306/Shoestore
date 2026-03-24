@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="first_name_hint">Ім’я</string>
+    <string name="last_name_hint">Прізвище</string>
+    <string name="birth_date_hint">Дата народження</string>
+    <string name="email_hint">Email</string>
+    <string name="login_hint">Логін</string>
+    <string name="password_hint">Пароль</string>
+    <string name="confirm_password_hint">Повтор пароля</string>
+    <string name="register_button">Зареєструватися</string>
+    <string name="login_button">Увійти</string>
 </resources>
