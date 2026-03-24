@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,9 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:maxWidth="400dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
         android:inputType="text"
-        android:autofillHints="username" />
+        android:autofillHints="username"
+        android:padding="12dp"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -21,16 +24,19 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:maxWidth="400dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
         android:inputType="textPassword"
-        android:autofillHints="password" />
+        android:autofillHints="password"
+        android:padding="12dp"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:text="@string/login_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:maxWidth="400dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_marginTop="20dp"
+        android:minWidth="200dp"
+        android:maxWidth="300dp"
+        android:padding="12dp"/>
 
 </LinearLayout>
