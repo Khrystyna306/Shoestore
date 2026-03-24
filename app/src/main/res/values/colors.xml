@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Фони та кольори -->
+    <color name="primary_color">#6EC1E4</color>          <!-- кнопка -->
+    <color name="primary_dark">#5AA0C8</color>           <!-- темніший відтінок кнопки -->
+    <color name="background_color">#FFF5F7FA</color>     <!-- фон екрану -->
+    <color name="input_bg">#FFFFFFFF</color>             <!-- поле вводу -->
+    <color name="input_border">#FFCCCCCC</color>        <!-- обводка полів -->
+    <color name="text_primary">#FF333333</color>        <!-- текст -->
+    <color name="text_hint">#FF888888</color>           <!-- підказка -->
 </resources>

@@ -27,11 +27,11 @@ class RegisterActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val etConfirmPassword = findViewById<EditText>(R.id.etConfirmPassword)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val btnGoToLogin = findViewById<Button>(R.id.btnGoToLogin)
 
-        // DatePicker
+        // DatePicker для дати народження
         etBirthDate.setOnClickListener {
             val calendar = Calendar.getInstance()
-
             DatePickerDialog(
                 this,
                 { _, year, month, day ->
@@ -43,18 +43,19 @@ class RegisterActivity : AppCompatActivity() {
             ).show()
         }
 
+        // Кнопка Реєстрації
         btnRegister.setOnClickListener {
-
-            val firstName = etFirstName.text.toString()
-            val lastName = etLastName.text.toString()
-            val birthDate = etBirthDate.text.toString()
-            val email = etEmail.text.toString()
-            val login = etLogin.text.toString()
+            val firstName = etFirstName.text.toString().trim()
+            val lastName = etLastName.text.toString().trim()
+            val birthDate = etBirthDate.text.toString().trim()
+            val email = etEmail.text.toString().trim()
+            val login = etLogin.text.toString().trim()
             val password = etPassword.text.toString()
             val confirmPassword = etConfirmPassword.text.toString()
 
-            if (firstName.isEmpty() || lastName.isEmpty() || birthDate.isEmpty()
-                || email.isEmpty() || login.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
+            // Валідація полів
+            if (firstName.isEmpty() || lastName.isEmpty() || birthDate.isEmpty() ||
+                email.isEmpty() || login.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
             ) {
                 Toast.makeText(this, "Заповніть всі поля", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -75,15 +76,27 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Збереження
+            // Збереження даних у SharedPreferences
             prefs.edit().apply {
+                putString("firstName", firstName)
+                putString("lastName", lastName)
+                putString("birthDate", birthDate)
+                putString("email", email)
                 putString("login", login)
                 putString("password", password)
+                putBoolean("isAuthorized", false) // поки не авторизований
                 apply()
             }
 
             Toast.makeText(this, "Реєстрація успішна", Toast.LENGTH_SHORT).show()
 
+            // Перехід на LoginActivity після реєстрації
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+        // Кнопка "Вхід" — перехід на LoginActivity без реєстрації
+        btnGoToLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }

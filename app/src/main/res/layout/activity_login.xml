@@ -3,20 +3,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/etLogin"
         android:hint="@string/login_hint"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="56dp"
         android:maxWidth="400dp"
         android:layout_marginTop="12dp"
         android:inputType="text"
         android:autofillHints="username"
-        android:padding="12dp"/>
+        android:padding="12dp"
+        style="@style/FormField"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -27,16 +28,18 @@
         android:layout_marginTop="12dp"
         android:inputType="textPassword"
         android:autofillHints="password"
-        android:padding="12dp"/>
+        android:padding="12dp"
+        style="@style/FormField"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:text="@string/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="56dp"
         android:layout_marginTop="20dp"
         android:minWidth="200dp"
         android:maxWidth="300dp"
-        android:padding="12dp"/>
+        android:padding="12dp"
+        style="@style/PrimaryButton"/>
 
 </LinearLayout>
