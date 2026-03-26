@@ -36,4 +36,4 @@
         android:id="@+id/btnLogout"
         android:text="Вийти"
         style="@style/SecondaryButton"/>
-</LinearLayout>пш
+</LinearLayout>
