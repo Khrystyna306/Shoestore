@@ -1,5 +1,6 @@
 package com.example.shoestore
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.*
@@ -28,7 +29,15 @@ class LoginActivity : AppCompatActivity() {
             val savedPassword = prefs.getString("password", "")
 
             if (login == savedLogin && password == savedPassword) {
+
                 Toast.makeText(this, "Вхід успішний", Toast.LENGTH_SHORT).show()
+
+
+                prefs.edit().putBoolean("isAuthorized", true).apply()
+
+                startActivity(Intent(this, MenuActivity::class.java))
+                finish()
+
             } else {
                 Toast.makeText(this, "Невірний логін або пароль", Toast.LENGTH_SHORT).show()
             }
