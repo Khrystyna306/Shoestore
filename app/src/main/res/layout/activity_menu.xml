@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background_color"
+    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Привітання -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:text="Привіт!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Кнопки -->
+    <Button
+        android:id="@+id/btnProducts"
+        android:text="Список товарів"
+        style="@style/PrimaryButton"/>
+
+    <Button
+        android:id="@+id/btnCategories"
+        android:text="Категорії взуття"
+        style="@style/PrimaryButton"/>
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:text="Профіль"
+        style="@style/PrimaryButton"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:text="Вийти"
+        style="@style/SecondaryButton"/>
+</LinearLayout>пш
