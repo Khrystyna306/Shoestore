@@ -84,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
                 putString("email", email)
                 putString("login", login)
                 putString("password", password)
-                putBoolean("isAuthorized", false) // поки не авторизований
+                    //putBoolean("isAuthorized", false) // поки не авторизований
                 apply()
             }
 

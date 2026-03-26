@@ -22,4 +22,16 @@
         <item name="android:layout_marginTop">20dp</item>
     </style>
 
+    <style name="SecondaryButton">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:backgroundTint">@color/input_border</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+    <style name="WelcomeText">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

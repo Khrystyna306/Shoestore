@@ -2,38 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/background_color"
-    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/backgroundColor">
 
-    <!-- Привітання -->
     <TextView
         android:id="@+id/tvWelcome"
-        android:text="Привіт!"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_primary"
-        android:layout_marginBottom="24dp"/>
+        android:text="Привіт, користувач!"
+        style="@style/WelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"/>
 
-    <!-- Кнопки -->
     <Button
         android:id="@+id/btnProducts"
         android:text="Список товарів"
-        style="@style/PrimaryButton"/>
+        style="@style/PrimaryButton"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnCategories"
         android:text="Категорії взуття"
-        style="@style/PrimaryButton"/>
+        style="@style/PrimaryButton"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnProfile"
         android:text="Профіль"
-        style="@style/PrimaryButton"/>
+        style="@style/PrimaryButton"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnLogout"
-        android:text="Вийти"
-        style="@style/SecondaryButton"/>
+        android:text="Вихід"
+        style="@style/PrimaryButton"/>
+
 </LinearLayout>

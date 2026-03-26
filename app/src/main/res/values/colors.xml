@@ -7,4 +7,8 @@
     <color name="input_border">#FFCCCCCC</color>        <!-- обводка полів -->
     <color name="text_primary">#FF333333</color>        <!-- текст -->
     <color name="text_hint">#FF888888</color>           <!-- підказка -->
+    <color name="backgroundColor">#FFF8F0</color>
+    <color name="buttonColor">#FF8C42</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+    <color name="textColor">#333333</color>
 </resources>

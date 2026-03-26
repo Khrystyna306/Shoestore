@@ -15,7 +15,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         prefs = getSharedPreferences("UserData", MODE_PRIVATE)
+        val isAuthorized = prefs.getBoolean("isAuthorized", false)
 
+        if (isAuthorized) {
+            startActivity(Intent(this, MenuActivity::class.java))
+            finish()
+        }
         val etLogin = findViewById<EditText>(R.id.etLogin)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
