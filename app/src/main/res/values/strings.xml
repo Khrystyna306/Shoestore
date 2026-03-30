@@ -9,4 +9,6 @@
     <string name="confirm_password_hint">Повтор пароля</string>
     <string name="register_button">Зареєструватися</string>
     <string name="login_button">Увійти</string>
+    <string name="product_image">Зображення товару</string>
+
 </resources>

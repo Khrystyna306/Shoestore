@@ -9,22 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoeStore">
+
+        <!-- Головне меню -->
         <activity
             android:name=".MenuActivity"
             android:exported="false" />
-        <!-- Головний екран (лаунчер) -->
+
+        <!-- Головний екран (реєстрація, лаунчер) -->
         <activity
             android:name=".RegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Екран входу -->
+        </activity>
+
+        <!-- Екран входу -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
+        <!-- Список продуктів -->
+        <activity
+            android:name=".ProductsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

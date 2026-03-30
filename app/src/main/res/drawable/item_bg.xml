@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Фон карточки -->
+    <solid android:color="@color/white"/>
+
+    <!-- Закруглені кути -->
+    <corners android:radius="12dp"/>
+
+    <!-- Тінь (Android 5.0+) -->
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp"/>
+</shape>

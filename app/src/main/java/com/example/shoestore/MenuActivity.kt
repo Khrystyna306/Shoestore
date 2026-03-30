@@ -34,7 +34,28 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+        // Переходи на інші екрани
+        btnProducts.setOnClickListener {
+            val intent = Intent(this, ProductsActivity::class.java)
+            startActivity(intent)
+        }
 
+            /* btnCategories.setOnClickListener {
+            val intent = Intent(this, CategoriesActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        } */
+
+        // Logout
+        btnLogout.setOnClickListener {
+            prefs.edit().putBoolean("isAuthorized", false).apply()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
     }
 }
