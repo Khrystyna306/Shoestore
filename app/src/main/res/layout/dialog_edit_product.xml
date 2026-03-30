@@ -30,5 +30,19 @@
         android:hint="Опис"
         android:padding="12dp"
         android:inputType="textMultiLine"/>
+    <ImageView
+        android:id="@+id/ivEditPhoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnChangePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Змінити фото"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

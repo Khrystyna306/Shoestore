@@ -1,21 +1,19 @@
 package com.example.shoestore
 
 import android.content.Context
-import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
     private val context: Context,
-    private val products: MutableList<Product>
+    private val products: MutableList<Product>,
+    private val onDataChanged: () -> Unit,
+    private val onChangePhotoRequested: (position: Int) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -35,60 +33,76 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
 
-        holder.ivProduct.setImageResource(product.imageResId)
+        // Встановлюємо фото
+        if (!product.imageUri.isNullOrEmpty()) {
+            holder.ivProduct.setImageURI(Uri.parse(product.imageUri))
+        } else {
+            holder.ivProduct.setImageResource(product.imageResId)
+        }
+
         holder.tvName.text = product.name
         holder.tvPrice.text = "$${product.price}"
         holder.tvDescription.text = product.description
 
-        // Клік на товар → переходить на DetailActivity
+        // Деталі
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("product", product)
-            context.startActivity(intent)
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_product_detail, null)
+            val tvName = dialogView.findViewById<TextView>(R.id.tvDetailName)
+            val tvPrice = dialogView.findViewById<TextView>(R.id.tvDetailPrice)
+            val tvDescription = dialogView.findViewById<TextView>(R.id.tvDetailDescription)
+            val ivProduct = dialogView.findViewById<ImageView>(R.id.ivDetailProduct)
+
+            tvName.text = product.name
+            tvPrice.text = "$${product.price}"
+            tvDescription.text = product.description
+            if (!product.imageUri.isNullOrEmpty()) {
+                ivProduct.setImageURI(Uri.parse(product.imageUri))
+            } else {
+                ivProduct.setImageResource(product.imageResId)
+            }
+
+            AlertDialog.Builder(context)
+                .setTitle("Деталі товару")
+                .setView(dialogView)
+                .setPositiveButton("Ок", null)
+                .show()
         }
 
-
-        // Редагувати
+        // Редагування
         holder.btnEdit.setOnClickListener {
             val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_product, null)
             val etName = dialogView.findViewById<EditText>(R.id.etName)
             val etPrice = dialogView.findViewById<EditText>(R.id.etPrice)
             val etDescription = dialogView.findViewById<EditText>(R.id.etDescription)
+            val btnChangePhoto = dialogView.findViewById<Button>(R.id.btnChangePhoto)
 
-            // Встановлюємо поточні значення товару
             etName.setText(product.name)
             etPrice.setText(product.price.toString())
             etDescription.setText(product.description)
 
-            val dialog = androidx.appcompat.app.AlertDialog.Builder(context)
+            btnChangePhoto.setOnClickListener {
+                onChangePhotoRequested(position)
+            }
+
+            AlertDialog.Builder(context)
                 .setTitle("Редагувати товар")
                 .setView(dialogView)
                 .setPositiveButton("Зберегти") { _, _ ->
-                    // Зчитуємо нові значення
-                    val newName = etName.text.toString()
-                    val newPrice = etPrice.text.toString().toDoubleOrNull() ?: product.price
-                    val newDescription = etDescription.text.toString()
-
-                    // Оновлюємо товар
-                    products[position] = product.copy(
-                        name = newName,
-                        price = newPrice,
-                        description = newDescription
-                    )
+                    product.name = etName.text.toString()
+                    product.price = etPrice.text.toString().toDoubleOrNull() ?: product.price
+                    product.description = etDescription.text.toString()
                     notifyItemChanged(position)
-                    Toast.makeText(context, "Товар оновлено", Toast.LENGTH_SHORT).show()
+                    onDataChanged()
                 }
-                .setNegativeButton("Скасувати", null)
-                .create()
-
-            dialog.show()
+                .setNegativeButton("Відміна", null)
+                .show()
         }
 
-        // Видалити
+        // Видалення
         holder.btnDelete.setOnClickListener {
             products.removeAt(position)
             notifyItemRemoved(position)
-            Toast.makeText(context, "Видалено: ${product.name}", Toast.LENGTH_SHORT).show()
+            onDataChanged()
         }
     }
 
