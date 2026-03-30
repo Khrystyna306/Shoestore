@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
@@ -45,9 +47,41 @@ class ProductAdapter(
             context.startActivity(intent)
         }
 
+
         // Редагувати
         holder.btnEdit.setOnClickListener {
-            Toast.makeText(context, "Редагувати: ${product.name}", Toast.LENGTH_SHORT).show()
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_product, null)
+            val etName = dialogView.findViewById<EditText>(R.id.etName)
+            val etPrice = dialogView.findViewById<EditText>(R.id.etPrice)
+            val etDescription = dialogView.findViewById<EditText>(R.id.etDescription)
+
+            // Встановлюємо поточні значення товару
+            etName.setText(product.name)
+            etPrice.setText(product.price.toString())
+            etDescription.setText(product.description)
+
+            val dialog = androidx.appcompat.app.AlertDialog.Builder(context)
+                .setTitle("Редагувати товар")
+                .setView(dialogView)
+                .setPositiveButton("Зберегти") { _, _ ->
+                    // Зчитуємо нові значення
+                    val newName = etName.text.toString()
+                    val newPrice = etPrice.text.toString().toDoubleOrNull() ?: product.price
+                    val newDescription = etDescription.text.toString()
+
+                    // Оновлюємо товар
+                    products[position] = product.copy(
+                        name = newName,
+                        price = newPrice,
+                        description = newDescription
+                    )
+                    notifyItemChanged(position)
+                    Toast.makeText(context, "Товар оновлено", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Скасувати", null)
+                .create()
+
+            dialog.show()
         }
 
         // Видалити
