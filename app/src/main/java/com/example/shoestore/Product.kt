@@ -4,6 +4,6 @@ data class Product(
     var name: String,
     var price: Double,
     var description: String,
-    var imageResId: Int = R.drawable.ic_launcher_foreground,
-    var imageUri: String? = null // якщо користувач вибрав фото з галереї
+    var imageResId: Int = R.drawable.ic_launcher_foreground, // завжди Int
+    var imageUri: String? = null // фото з галереї
 )

@@ -33,7 +33,7 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
 
-        // Встановлюємо фото
+        // Фото
         if (!product.imageUri.isNullOrEmpty()) {
             holder.ivProduct.setImageURI(Uri.parse(product.imageUri))
         } else {
